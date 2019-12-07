@@ -2,26 +2,75 @@
 <div *ngIf='waiting'>
   <mat-spinner></mat-spinner>
 </div>
+<div>
+	<h1>OpenSource@illinois</h1>
+	<h2>Sign-up</h2>
 <div *ngIf='!badActor && !waiting'>
   <form [formGroup]="newUserForm" (ngSubmit)="addNewUser(newUserForm)">
     <div class="form-container">
+	Your name: 
       <mat-form-field>
         <input matInput placeholder="First name" formControlName="firstname">
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Last name" formControlName="lastname">
       </mat-form-field>
+	<br>
+	Email: 
       <mat-form-field>
         <input matInput placeholder="email" formControlName="email">
       </mat-form-field>
+	<br>
+	GitHub Account
+	 <mat-form-field>
+        <input matInput placeholder="github account" formControlName="github account">
+      </mat-form-field>
+	<br>
+	Username: 
+	<mat-form-field>
+        <input matInput placeholder="username" formControlName="username">
+      </mat-form-field>
+	<br>
+	Password: 
+	<mat-form-field>
+        <input matInput placeholder="password" formControlName="password">
+      </mat-form-field>
+	<hr>
+	<div>
+	<section class="questions">
+          	<label for="age">What's your age? </label>
+          	<input type="number" name="amount" id="age">
+		<br>
+		<label for="Location">Where do you live?</label>
+		<input type="text" name="amount" id="age">
+		<br>
+		<label type="way">How did you get to know us?</label>
+		<input type="text" name="way" id="way">
+		<br>
+		<label type="selfintro">How do you describe yourself?</label>
+		<input type="text" name="selfintro" id="selfintro">
+	</div>
+	<hr>
       <button mat-button class='btn btn-default' [disabled]="!newUserForm.valid">Submit</button>
     </div>
   </form>
 </div>
+
 <div *ngIf='badActor && !waiting'>
   <p>
     An account for this github already exists. This github, {{this.githubInfo.nickname}}, has 
     been flagged for review by admins
   </p>
 </div>
+<div>
+<script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+</div>
+
 
